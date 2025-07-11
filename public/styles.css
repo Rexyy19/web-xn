@@ -209,22 +209,76 @@ section {
   background: none;
   border: none;
   font-size: 1.05rem;
-  padding: 0.7rem 0;
+  padding: 0.3rem 0 0.1rem 0;
   color: #7f8cff;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  border-radius: 0;
+  outline: none;
+  position: relative;
+}
+.nav-btn:active {
+  background: #f0f1f5;
 }
 .nav-btn.active, .nav-btn:focus {
   background: #e6eaff;
   color: #222;
 }
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.1rem;
+}
+.nav-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+.nav-label {
+  font-size: 0.85rem;
+  margin-top: 0.1rem;
+  letter-spacing: 0.01em;
+}
+
+/* Slide transition for main-section */
 .main-section {
   display: none;
   padding-bottom: 70px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  background: #f7f8fa;
+  min-height: 100vh;
+  z-index: 1;
 }
 .main-section.active {
   display: block;
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
+.main-section.slide-in {
+  animation: slideInRight 0.35s cubic-bezier(.4,0,.2,1);
+}
+.main-section.slide-out {
+  animation: slideOutLeft 0.35s cubic-bezier(.4,0,.2,1);
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-40px); }
 }
 
 @media (max-width: 700px) {
@@ -259,7 +313,11 @@ section {
   }
   .nav-btn {
     font-size: 0.98rem;
-    padding: 0.5rem 0;
+    padding: 0.2rem 0 0.1rem 0;
+  }
+  .nav-icon svg {
+    width: 22px;
+    height: 22px;
   }
   .main-section {
     padding-bottom: 60px;

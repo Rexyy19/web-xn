@@ -76,26 +76,38 @@ function setupEventListeners() {
     loadBuildCharacters('genshin');
 }
 
-// Switcher page navigation
+// Switcher page navigation dengan animasi slide
 function setupPageSwitcher() {
   const navBtns = document.querySelectorAll('.nav-btn');
   const sections = document.querySelectorAll('.main-section');
+  let currentSection = document.querySelector('.main-section.active') || sections[0];
 
   function showSection(targetId) {
-    sections.forEach(sec => {
-      if (sec.id === targetId) {
-        sec.classList.add('active');
-      } else {
-        sec.classList.remove('active');
-      }
-    });
-    navBtns.forEach(btn => {
-      if (btn.getAttribute('data-target') === targetId) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
+    if (!currentSection || currentSection.id === targetId) return;
+    const nextSection = document.getElementById(targetId);
+    if (!nextSection) return;
+
+    // Remove active from all
+    sections.forEach(sec => sec.classList.remove('active', 'slide-in', 'slide-out'));
+    navBtns.forEach(btn => btn.classList.remove('active'));
+
+    // Animate out current
+    currentSection.classList.add('slide-out');
+    setTimeout(() => {
+      currentSection.classList.remove('slide-out');
+      currentSection.style.display = 'none';
+      // Animate in next
+      nextSection.style.display = 'block';
+      nextSection.classList.add('active', 'slide-in');
+      setTimeout(() => {
+        nextSection.classList.remove('slide-in');
+      }, 350);
+      currentSection = nextSection;
+    }, 350);
+
+    // Set active nav
+    const btn = document.querySelector('.nav-btn[data-target="' + targetId + '"]');
+    if (btn) btn.classList.add('active');
   }
 
   navBtns.forEach(btn => {
@@ -105,7 +117,11 @@ function setupPageSwitcher() {
   });
 
   // Tampilkan Home di awal
-  showSection('home-section');
+  sections.forEach(sec => sec.style.display = 'none');
+  currentSection.style.display = 'block';
+  currentSection.classList.add('active');
+  const btn = document.querySelector('.nav-btn[data-target="' + currentSection.id + '"]');
+  if (btn) btn.classList.add('active');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
