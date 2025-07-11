@@ -191,6 +191,42 @@ section {
   margin-bottom: 1.2rem;
 }
 
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid #e0e2ea;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 56px;
+  z-index: 100;
+}
+.nav-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 1.05rem;
+  padding: 0.7rem 0;
+  color: #7f8cff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-btn.active, .nav-btn:focus {
+  background: #e6eaff;
+  color: #222;
+}
+.main-section {
+  display: none;
+  padding-bottom: 70px;
+}
+.main-section.active {
+  display: block;
+}
+
 @media (max-width: 700px) {
   section {
     padding: 1.5rem 0.5rem;
@@ -217,5 +253,15 @@ section {
   .game-logo img {
     width: 40px;
     height: 40px;
+  }
+  .bottom-nav {
+    height: 48px;
+  }
+  .nav-btn {
+    font-size: 0.98rem;
+    padding: 0.5rem 0;
+  }
+  .main-section {
+    padding-bottom: 60px;
   }
 } 

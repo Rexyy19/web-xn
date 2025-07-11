@@ -1,0 +1,21 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "Platform web canggih untuk mengelola bot WhatsApp dengan fitur game integration, AI chat, dan community management.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rexyy19/web-xn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rexyy19/web-xn/issues"
+  },
+  "homepage": "https://github.com/Rexyy19/web-xn#readme"
+}

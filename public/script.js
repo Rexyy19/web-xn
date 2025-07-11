@@ -76,6 +76,42 @@ function setupEventListeners() {
     loadBuildCharacters('genshin');
 }
 
+// Switcher page navigation
+function setupPageSwitcher() {
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const sections = document.querySelectorAll('.main-section');
+
+  function showSection(targetId) {
+    sections.forEach(sec => {
+      if (sec.id === targetId) {
+        sec.classList.add('active');
+      } else {
+        sec.classList.remove('active');
+      }
+    });
+    navBtns.forEach(btn => {
+      if (btn.getAttribute('data-target') === targetId) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      showSection(btn.getAttribute('data-target'));
+    });
+  });
+
+  // Tampilkan Home di awal
+  showSection('home-section');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupPageSwitcher();
+});
+
 // ==================== BOT STATUS ====================
 
 // Update bot status

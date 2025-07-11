@@ -7,20 +7,29 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Home Section -->
+  <section class="main-section" id="home-section">
     <h1>Gabung Komunitas Game Seru di WhatsApp! <span class="emoji">🎮</span></h1>
     <p class="subtitle">Mabar, ngobrol, dan seru-seruan bareng player Genshin, HSR, Wuthering Waves, dan lainnya!</p>
     <a href="#join" class="cta-btn">Gabung Sekarang</a>
+    <div class="highlight-list">
+      <div class="highlight-item"><span class="emoji">🎉</span> Mabar bareng tiap hari, dari casual sampai tryhard!</div>
+      <div class="highlight-item"><span class="emoji">🎁</span> Event seru & giveaway rutin!</div>
+      <div class="highlight-item"><span class="emoji">💬</span> Tempat curhat, sharing tips, dan cari teman baru!</div>
+      <div class="highlight-item"><span class="emoji">🤖</span> Bot lucu siap nemenin (tapi komunitas tetap utama!)</div>
+    </div>
+    <section class="cta-section" id="join">
+      <h2>Yuk, gabung sekarang dan rasakan serunya komunitas game di WhatsApp! <span class="emoji">🚀</span></h2>
+      <a href="#" class="cta-btn">Join Grup WhatsApp</a>
+    </section>
   </section>
 
-  <!-- Game Slider Section -->
-  <section class="game-slider-section">
+  <!-- Games Section -->
+  <section class="main-section" id="games-section" style="display:none">
     <h2>Game yang Bisa Kamu Temui di Komunitas Ini</h2>
     <p class="slider-subtitle">Pilih game favoritmu, join grupnya, dan cari teman mabar!</p>
     <div class="game-slider-wrapper">
       <div class="game-slider" id="gameSlider">
-        <!-- Card game, isi dengan logo bulat dan nama game -->
         <div class="game-card">
           <img src="assets/genshin.jpg" alt="Genshin Impact">
           <div class="game-name">Genshin Impact</div>
@@ -33,37 +42,40 @@
           <img src="assets/wuwa.jpg" alt="Wuthering Waves">
           <div class="game-name">Wuthering Waves</div>
         </div>
-        <!-- Tambah game baru di sini -->
       </div>
     </div>
   </section>
 
-  <!-- Highlight Keseruan Mabar Section -->
-  <section class="highlight-section">
-    <h2>Kenapa Gabung Komunitas Ini? <span class="emoji">🤩</span></h2>
-    <div class="highlight-list">
-      <div class="highlight-item"><span class="emoji">🎉</span> Mabar bareng tiap hari, dari casual sampai tryhard!</div>
-      <div class="highlight-item"><span class="emoji">🎁</span> Event seru & giveaway rutin!</div>
-      <div class="highlight-item"><span class="emoji">💬</span> Tempat curhat, sharing tips, dan cari teman baru!</div>
-      <div class="highlight-item"><span class="emoji">🤖</span> Bot lucu siap nemenin (tapi komunitas tetap utama!)</div>
-    </div>
+  <!-- Bot Section -->
+  <section class="main-section" id="bot-section" style="display:none">
+    <h2>Bot Assistant Komunitas</h2>
+    <p>Kenalan dengan bot assistant kami yang siap membantu member komunitas! Bot ini bisa menjawab pertanyaan, memberikan info event, dan membantu aktivitas komunitas jadi lebih mudah.</p>
+    <ul>
+      <li>Auto-respon pertanyaan seputar game & komunitas</li>
+      <li>Info event, jadwal mabar, dan pengumuman</li>
+      <li>Mini games & fitur seru lainnya</li>
+      <li>Support multi-platform (WhatsApp, Telegram, dsb)</li>
+    </ul>
   </section>
 
-  <!-- Testimoni Section -->
-  <section class="testimoni-section">
-    <h2>Kata Member <span class="emoji">😂</span></h2>
-    <div class="testimoni-list">
-      <div class="testimoni-bubble">"Mabar di sini ngakak terus, ga pernah sepi!" <span class="emoji">🤣</span></div>
-      <div class="testimoni-bubble">"Dapet temen baru dan sepuh baru" <span class="emoji">🔥</span></div>
-      <div class="testimoni-bubble">"Adminnya ramah, botnya juga lucu!" <span class="emoji"></span></div>
-    </div>
+  <!-- Contact Section -->
+  <section class="main-section" id="contact-section" style="display:none">
+    <h2>Contact Admin</h2>
+    <p>Untuk pertanyaan, kerjasama, atau bantuan, silakan hubungi admin komunitas:</p>
+    <ul>
+      <li>Email: admin@komunitasgame.com</li>
+      <li>WhatsApp: 08xxxxxxxxxx</li>
+      <li>Instagram: @komunitasgame</li>
+    </ul>
   </section>
 
-  <!-- CTA Penutup -->
-  <section class="cta-section" id="join">
-    <h2>Yuk, gabung sekarang dan rasakan serunya komunitas game di WhatsApp! <span class="emoji">🚀</span></h2>
-    <a href="#" class="cta-btn">Join Grup WhatsApp</a>
-  </section>
+  <!-- Switcher Navigation -->
+  <nav class="bottom-nav">
+    <button class="nav-btn" data-target="home-section">Home</button>
+    <button class="nav-btn" data-target="games-section">Games</button>
+    <button class="nav-btn" data-target="bot-section">Bot</button>
+    <button class="nav-btn" data-target="contact-section">Contact</button>
+  </nav>
 
   <script src="slider.js"></script>
 </body>
