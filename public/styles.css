@@ -4,6 +4,7 @@ body {
   color: #222;
   margin: 0;
   padding: 0;
+  padding-bottom: 70px;
 }
 
 .emoji {
@@ -249,15 +250,13 @@ section {
 
 /* Slide transition for main-section */
 .main-section {
-  display: none;
-  padding-bottom: 70px;
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  background: #f7f8fa;
-  min-height: 100vh;
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 70px;
+  position: static;
+  opacity: 1;
+  transform: none;
+  display: block;
+  padding-bottom: 0;
   z-index: 1;
 }
 .main-section.active {
@@ -283,7 +282,7 @@ section {
 
 .section-inner {
   max-width: 420px;
-  margin: 0 auto;
+  margin: 0 auto 2.5rem auto;
   padding: 2.2rem 1.2rem 1.2rem 1.2rem;
   background: #fff;
   border-radius: 18px;

@@ -128,6 +128,46 @@ document.addEventListener('DOMContentLoaded', function() {
   setupPageSwitcher();
 });
 
+// Scroll spy navigation
+function setupScrollSpyNav() {
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const sections = document.querySelectorAll('.main-section');
+
+  function updateActiveNav() {
+    let current = sections[0];
+    const scrollY = window.scrollY + 80; // offset for nav height
+    sections.forEach(section => {
+      if (section.offsetTop <= scrollY) {
+        current = section;
+      }
+    });
+    navBtns.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-target') === current.id);
+    });
+  }
+
+  // Scroll to section on nav click
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(btn.getAttribute('data-target'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 56, // offset for nav
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupScrollSpyNav();
+});
+
 // ==================== BOT STATUS ====================
 
 // Update bot status
